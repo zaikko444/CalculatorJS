@@ -2,42 +2,26 @@ function createCalculator(){
   return {
     display: document.querySelector('.display'),
 
-    start(){
-     this.buttonClick()
-    },
+    start(){this.buttonClick()},
 
     sumTotal(){
       try{
         let sum = eval(this.display.value)
         this.display.value = '';
         this.display.value += sum
-
       } catch{
         alert('Conta invalida')
       }
     },
 
-
     buttonClick() {
       document.addEventListener('click', (e) =>{
         const el = e.target;
-    
-        if(el.classList.contains('btn-num')){
-            this.btnForDisplay(el.innerText)
-        }
-
-        if (el.classList.contains('btn-clear')){
-          this.clearDisplay()
-        }
-
-        if (el.classList.contains('btn-del')){
-          this.deleteOne()
-        }
-
-        if (el.classList.contains('btn-eq')){
-         this.sumTotal()
-        }
-
+  
+        if(el.classList.contains('btn-num')) this.btnForDisplay(el.innerText)
+        if (el.classList.contains('btn-clear')) this.clearDisplay()
+        if (el.classList.contains('btn-del')) this.deleteOne()
+        if (el.classList.contains('btn-eq')) this.sumTotal()
       });
     },
 
